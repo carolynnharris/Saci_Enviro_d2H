@@ -132,13 +132,19 @@ BP_palette <- c("blue","cyan3", "deeppink2", "goldenrod1")
 ##### linear regs #####
 lm_temp <- lm(DoublingTime_Mean ~ Temperature, data = Temp)
 summary(lm_temp) # r2 = 0.94, p = 0.02
+
 lm_pH <- lm(DoublingTime_Mean ~ pH, data = pH)
-summary(lm_pH) # r2 = 0.81, p = 0.27
+summary(lm_pH) # r2 = 0.43, p = 0.54
+
+lm_pH_quad <- lm(DoublingTime_Mean ~ pH + I(pH^2), data = pH)
+summary(lm_pH_quad) # no parameter estimates bc the model is overfit
+# we have only 3 data points and 3 parameters to estimate, leaving no df left for residuals
+
 lm_RPM <- lm(DoublingTime_Mean ~ RPM, data = RPM)
-summary(lm_RPM)  # r2 = 0.51, p = 0.50
+summary(lm_RPM)  # r2 = 0.51, p = 0.49
 lm_DO <- lm(DoublingTime_Mean ~ log(DO), data = DO)
 summary(lm_DO)  # r2 = 0.76, p = 0.13
-lm_Flux <- lm(Doubling_mean ~ DoublingTime_Mean, data = Flux)
+lm_Flux <- lm(DoublingTime_Mean*1.001 ~ DoublingTime_Mean, data = Flux)
 summary(lm_Flux) # r2 = 1, essentially perfect fit
 
 png("02_SummaryFigs/03_Fig2_SaciResultsBigPanel.png",
@@ -240,9 +246,9 @@ plot(pH$pH, pH$DoublingTime_Mean,
      xaxt = "n",
      yaxt = "n",
      cex.axis = 0.75)
-abline(lm_pH,
-       col = pH$Col_exp,
-       lwd = 1.5)
+# abline(lm_pH,
+#        col = pH$Col_exp,
+#        lwd = 1.5)
 axis(1, at = seq(2, 4, 1),
      las = 1,
      labels = T,
@@ -1081,8 +1087,8 @@ points(Flux$DoublingTime_Mean, Flux$RingIndex_BP,
 #     mgp = c(2, 0.5, 0)) 
 
 ##### Plot 1 Temp #### 
-eps_min = -300
-eps_max = -100
+eps_min = -250
+eps_max = -150
 plot(Temp$Temp, Temp$AllBP_EpsLW_wt_mean,
      las = 1,
      cex = 1.5,     
@@ -1098,16 +1104,16 @@ plot(Temp$Temp, Temp$AllBP_EpsLW_wt_mean,
      xaxt = "n",
      yaxt = "n",
      cex.axis = 0.75)
-abline(lm_temp,
-       col = Temp$Col_exp,
-       lwd = 1.5)
+# abline(lm_temp,
+#        col = Temp$Col_exp,
+#        lwd = 1.5)
 axis(1, at = seq(60, 80, 5),
      las = 1,
      labels = T,
      tck = -0.035,
      cex.axis = 0.75,
      line = 0)
-axis(2, at = seq(eps_min, eps_max, 100),
+axis(2, at = seq(eps_min, eps_max, 50),
      las = 1,
      labels = T,
      tck = -0.035,
@@ -1182,7 +1188,7 @@ axis(1, at = seq(2, 4, 1),
      tck = -0.035,
      cex.axis = 0.75,
      line = 0)
-axis(2, at = seq(eps_min, eps_max, 100),
+axis(2, at = seq(eps_min, eps_max, 50),
      las = 1,
      labels = T,
      tck = -0.035,
@@ -1256,7 +1262,7 @@ axis(1, at = c(seq(0,300,100)),
      tck = -0.035,
      cex.axis = 0.75,
      line = 0)
-axis(2, at = seq(eps_min, eps_max, 100),
+axis(2, at = seq(eps_min, eps_max, 50),
      las = 1,
      labels = T,
      tck = -0.035,
@@ -1333,7 +1339,7 @@ axis(1, at = c(0.2,  0.5, 2,  20),
      tck = -0.035,
      cex.axis = 0.75,
      line = 0)
-axis(2, at = seq(eps_min, eps_max, 100),
+axis(2, at = seq(eps_min, eps_max, 50),
      las = 1,
      labels = T,
      tck = -0.035,
@@ -1409,7 +1415,7 @@ axis(1, at = c(seq(0,50,25)),
      tck = -0.035,
      cex.axis = 0.75,
      line = 0)
-axis(2, at = seq(eps_min, eps_max, 100),
+axis(2, at = seq(eps_min, eps_max, 50),
      las = 1,
      labels = T,
      tck = -0.035,

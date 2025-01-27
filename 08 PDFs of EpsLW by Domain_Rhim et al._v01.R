@@ -12,6 +12,7 @@ library("colorspace")
 #### data input ####
 Fig6 <- read_xlsx("00_DataInputs/05_Rhim et al. 2024/Rhim et al., 2024_EpsilonCompilation_Fig6.xlsx",
                    sheet = "Fig6")
+saci <- readRDS("00_Experiment Dataframes/enviro_merge.rds")
 
 
 #### data cleaning ####
@@ -30,8 +31,62 @@ arch$Eps <- arch$epsilon
 euks <- subset(euks, euks$Eps != "NA")
 bac <- subset(bac, bac$Eps != "NA")
 arch <- subset(arch, arch$Eps != "NA")
+saci <- subset(saci, saci$EpsLW_wt_mean != "NA")
 
-##### calculate density #####
+#### Compare variance between archaea and euks ####
+##### combine data into one df #####
+saci$Domain <- "Archaea"
+saci$Eps <- saci$EpsLW_wt_mean
+
+bac_subset <- bac %>% select(Domain, Eps)
+euks_subset <- euks %>% select(Domain, Eps)
+arch_subset <- arch %>% select(Domain, Eps)
+saci_subset <- saci %>% select(Domain, Eps)
+dat <- rbind(
+  euks_subset,
+  arch_subset,
+  saci_subset)
+
+dat_arch_bac <- rbind(
+  bac_subset,
+  arch_subset,
+  saci_subset)
+
+#####  test for equal variance #####
+library(car)
+var_arch <- var(arch$Eps)
+var_euks <- var(euks$Eps)
+var_bac <- var(bac$Eps)
+
+variance_ratio_euks_arch <- var_euks / var_arch
+variance_ratio_bac_arch <- var_bac / var_arch
+
+leveneTest(Eps ~ Domain, data = dat)
+# Levene's Test for Homogeneity of Variance , F(1,340) = 5.16, p = 0.024
+leveneTest(Eps ~ Domain, data = dat_arch_bac)
+# Levene's Test for Homogeneity of Variance , F(1,210) = 52, p <0.0001
+
+bartlett.test(Eps ~ Domain, data = dat)
+# Bartlett's K-squared = 16.374, df = 1, p-value = 5.201e-05
+bartlett.test(Eps ~ Domain, data = dat_arch_bac)
+# Bartlett's K-squared = 118.48, df = 1, p-value < 2.2e-16
+
+
+boxplot(Eps ~ Domain, data = dat,
+        main = "Variance Comparison",
+        ylab = "Eps",
+        xlab = "Domain",
+        col = c("deeppink2", "chartreuse3"),
+        border = "black")
+stripchart(Eps ~ Domain, data = dat,
+           vertical = TRUE, 
+           method = "jitter",
+           pch = 16, 
+           cex = 0.5,
+           col = "black", 
+           add = TRUE)
+
+#### Calculate density PDF ####
 euks.Eps <- euks$Eps
 euks.d_Eps <- density(euks.Eps,
                       bw = 30)
@@ -42,13 +97,21 @@ arch.Eps <- arch$Eps
 arch.d_Eps <- density(arch.Eps,
                       bw = 30)
 
+saci.Eps <- saci$EpsLW_wt_mean
+saci.d_Eps <- density(saci.Eps,
+                      bw = 20)
+# all archaea
+all.arch.Eps <- c(arch.Eps, saci.Eps)
+all.arch.d_Eps <- density(all.arch.Eps,
+                          bw = 20)
 
 #### Plot density functions for Eps by domain ####
 # scale so all range btwn 0 and 1
 euks.d_Eps$y <- euks.d_Eps$y / (max(euks.d_Eps$y))
 bac.d_Eps$y <- bac.d_Eps$y / (max(bac.d_Eps$y))
 arch.d_Eps$y <- arch.d_Eps$y / (max(arch.d_Eps$y))
-
+saci.d_Eps$y <- saci.d_Eps$y / (max(saci.d_Eps$y))
+all.arch.d_Eps$y <- all.arch.d_Eps$y / (max(all.arch.d_Eps$y))
 
 ##### ALL DOMAINS- STACKED #####
 # determine offsets
@@ -103,16 +166,21 @@ polygon(bac.d_Eps,
                   alpha = 0.3),
         border = NA)
 
-lines(arch.d_Eps,
+lines(all.arch.d_Eps,
       col = "deeppink2",
       lwd = 2)
 
-polygon(arch.d_Eps,
+polygon(all.arch.d_Eps,
         col = rgb(col2rgb("deeppink2")[1]/255,
                   col2rgb("deeppink2")[2]/255,
                   col2rgb("deeppink2")[3]/255,
                   alpha = 0.3),
         border = NA)
+
+# lines(saci.d_Eps,
+#       col = "black",
+#       lwd = 2)
+
 
 # Add data points
 rug(jitter(euks.Eps),
@@ -127,6 +195,11 @@ rug(jitter(bac.Eps),
     ticksize = 0.02)
 rug(jitter(arch.Eps),
     col = "deeppink2",
+    lwd = 1,
+    line = -0.32,
+    ticksize = 0.02)
+rug(jitter(saci.Eps),
+    col = "black",
     lwd = 1,
     line = -0.32,
     ticksize = 0.02)
@@ -167,7 +240,7 @@ text(x = -460,
      cex = 0.8)
 text(x = -460,
      y = 0.5,
-     labels = "n = 50",
+     labels = "n = 72",
      col = "deeppink2",
      pos = 4,
      cex = 0.7)

@@ -48,8 +48,8 @@ DO$pch_exp <- 24
 Flux$pch_exp <- 25
 
 ####  PLOT OF T_D vs. Eps for each indiv experiment   - 2 x 3 ####
-  minEps = -300
-  maxEps = -100
+  minEps = -250
+  maxEps = -150
   
   png("02_SummaryFigs/04_Fig5_WtMeanEps_vs_Td_panel_v2.png",
       width = 130, height = 80, units = 'mm', res = 300)
@@ -60,6 +60,8 @@ Flux$pch_exp <- 25
 
   
   ##### Plot 1 Temp ##### 
+  # lm_temp <- lm(AllBP_EpsLW_wt_mean ~ DoublingTime_Mean, data = Temp)
+  # summary(lm_temp) #r2 = 0.53, p = 0.26
   plot(Temp$DoublingTime_Mean, Temp$AllBP_EpsLW_wt_mean,
        las = 1,
        cex = 1.5,
@@ -81,7 +83,7 @@ Flux$pch_exp <- 25
        tck = -0.035,
        cex.axis = 0.75,
        line = 0)
-  axis(2, at = seq(minEps, maxEps, 100),
+  axis(2, at = seq(minEps, maxEps, 50),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -142,6 +144,8 @@ Flux$pch_exp <- 25
          col = Temp$Col_exp)
   
   ##### Plot 2 pH #####
+  # lm_pH <- lm(AllBP_EpsLW_wt_mean ~ DoublingTime_Mean, data = pH)
+  # summary(lm_pH) #r2 = 0.25, p = 0.67
   plot(pH$DoublingTime_Mean, pH$AllBP_EpsLW_wt_mean,
        las = 1,
        cex = 1.5,
@@ -163,7 +167,7 @@ Flux$pch_exp <- 25
        tck = -0.035,
        cex.axis = 0.75,
        line = 0)
-  axis(2, at = seq(minEps, maxEps, 100),
+  axis(2, at = seq(minEps, maxEps, 50),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -220,6 +224,8 @@ Flux$pch_exp <- 25
          lwd = 1.5)
   
   ##### Plot 3 RPM ##### 
+  lm_RPM <- lm(AllBP_EpsLW_wt_mean ~ DoublingTime_Mean, data = RPM)
+  summary(lm_RPM) #r2 = 0.83, p = 0.28
   plot(RPM$DoublingTime_Mean, RPM$AllBP_EpsLW_wt_mean,
        las = 1,
        cex = 1.5,
@@ -241,7 +247,7 @@ Flux$pch_exp <- 25
        tck = -0.035,
        cex.axis = 0.75,
        line = 0)
-  axis(2, at = seq(minEps, maxEps, 100),
+  axis(2, at = seq(minEps, maxEps, 50),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -297,6 +303,8 @@ Flux$pch_exp <- 25
          lwd = 1.5)
   
   ##### Plot 4 Dissolved O2% sparge ##### 
+  lm_DO <- lm(AllBP_EpsLW_wt_mean ~ DoublingTime_Mean, data = DO)
+  summary(lm_DO) #r2 = 0.7, p = 0.16
   plot(DO$DoublingTime_Mean, DO$AllBP_EpsLW_wt_mean,
        las = 1,
        cex = 1.5,
@@ -318,7 +326,7 @@ Flux$pch_exp <- 25
        tck = -0.035,
        cex.axis = 0.75,
        line = 0)
-  axis(2, at = seq(minEps, maxEps, 100),
+  axis(2, at = seq(minEps, maxEps, 50),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -376,6 +384,8 @@ Flux$pch_exp <- 25
   
   
   ##### Plot 5 Flux ##### 
+  lm_Flux <- lm(AllBP_EpsLW_wt_mean ~ DoublingTime_Mean, data = Flux)
+  summary(lm_Flux) #r2 = 0.85, p = 0.24
   plot(Flux$DoublingTime_Mean, Flux$AllBP_EpsLW_wt_mean,
        las = 1,
        cex = 1.5,
@@ -396,7 +406,7 @@ Flux$pch_exp <- 25
        tck = -0.035,
        cex.axis = 0.75,
        line = 0)
-  axis(2, at = seq(minEps, maxEps, 100),
+  axis(2, at = seq(minEps, maxEps, 50),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -412,7 +422,7 @@ Flux$pch_exp <- 25
   mtext("E", 
         side = 1, 
         line = -1.5, 
-        adj = 0.1,
+        adj = 0.9,
         font = 2, 
         cex = 0.9)
   title(main = "e- donor flux", 
@@ -486,7 +496,7 @@ Flux$pch_exp <- 25
        tck = -0.035,
        cex.axis = 0.75,
        line = 0)
-  axis(2, at = seq(minEps, maxEps, 100),
+  axis(2, at = seq(minEps, maxEps, 50),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -502,7 +512,7 @@ Flux$pch_exp <- 25
   mtext("F", 
         side = 1, 
         line = -1.5, 
-        adj = 0.1,
+        adj = 0.9,
         font = 2, 
         cex = 0.9)
   title(main = "All Data",

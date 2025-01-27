@@ -18,7 +18,8 @@ library("reshape")
 
 
 #### data input ####
-dat <- read_excel("00_DataInputs/02_Growth_Iso_Data/AllSaciExpData_v03.xlsx")
+dat <- read_excel("00_DataInputs/02_Growth_Iso_Data/Saci_environmentalConditions_d2H_rawData.xlsx",
+                  sheet = "Data")
 
 #### SYMBOLOGY ####
 dat$pch = 21

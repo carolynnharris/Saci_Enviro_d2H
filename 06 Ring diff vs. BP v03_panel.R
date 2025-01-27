@@ -245,8 +245,8 @@ par(mfrow=c(2, 3),
     mgp = c(2, 0.5, 0)) 
   
   ##### Plot 1 Temp #### 
-  maxRingDiff <- 25
-  minRingDiff <- -20
+  maxRingDiff <- 40
+  minRingDiff <- -40
   plot(Temp_long$BP, Temp_long$RingDiff,
        las = 1,
        cex = 1.5,
@@ -271,7 +271,7 @@ par(mfrow=c(2, 3),
        cex.axis = 0.75,
        line = 0)
 
-  axis(2, at = seq(-50, 50, 10),
+  axis(2, at = seq(-40, 40, 20),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -337,7 +337,7 @@ par(mfrow=c(2, 3),
   
   ##### Plot 2 pH #### 
   maxRingDiff <- 40
-  minRingDiff <- -30
+  minRingDiff <- -40
   plot(pH_long$BP, pH_long$RingDiff,
        las = 1,
        cex = 1.5,
@@ -420,8 +420,8 @@ par(mfrow=c(2, 3),
   
   
   ##### Plot 3 RPM #### 
-  maxRingDiff <- 20
-  minRingDiff <- -20
+  maxRingDiff <- 40
+  minRingDiff <- -40
   plot(RPM_long$BP, RPM_long$RingDiff,
        las = 1,
        cex = 1.5,
@@ -446,7 +446,7 @@ par(mfrow=c(2, 3),
        cex.axis = 0.75,
        line = 0)
   
-  axis(2, at = seq(-50, 50, 10),
+  axis(2, at = seq(-40, 40, 20),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -498,7 +498,7 @@ par(mfrow=c(2, 3),
          text.col = "black",
          col = c("darkorchid1", "darkorchid4", "black"),
          pt.cex = 1.2,
-         pch = c(18, 15, 16, 17))
+         pch = c(18, 15, 17))
   
   
   
@@ -584,8 +584,8 @@ par(mfrow=c(2, 3),
   
   
   ##### Plot 5 Flux  #### 
-  maxRingDiff <- 30
-  minRingDiff <- -10
+  maxRingDiff <- 40
+  minRingDiff <- -40
   plot(Flux_long$BP, Flux_long$RingDiff,
        las = 1,
        cex = 1.5,
@@ -610,7 +610,7 @@ par(mfrow=c(2, 3),
        cex.axis = 0.75,
        line = 0)
   
-  axis(2, at = seq(-50, 50, 10),
+  axis(2, at = seq(-40, 40, 20),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -670,8 +670,8 @@ par(mfrow=c(2, 3),
          pch = c(16, 17, 18))
   
   ##### Plot 6 - other studies ####
-  maxRingDiff <- 20
-  minRingDiff <- -5
+  maxRingDiff <- 40
+  minRingDiff <- -40
   plot(other_long$RingDiff ~ other_long$BP,
        las = 1,
        cex = 1.5,
@@ -706,7 +706,7 @@ par(mfrow=c(2, 3),
        cex.axis = 0.75,
        line = 0)
   
-  axis(2, at = seq(-50, 50, 10),
+  axis(2, at = seq(-40, 40, 20),
        las = 1,
        labels = T,
        tck = -0.035,
@@ -724,9 +724,9 @@ par(mfrow=c(2, 3),
         outer = F,
         adj = 0.5,
         font.main = 1)
-  legend("topleft",
+  legend("bottomleft",
          bty = "n",
-         cex = 0.75,
+         cex = 0.7,
          legend = c("Sulfolobus spp.", 
                     "N. mari - 31 hr",
                     "N. mari - 46 hr",

@@ -1,10 +1,9 @@
 # Saci_Enviro_d2H
-This repository holds data and supplementary source code for the manuscript, Harris et al. "Lipid hydrogen isotope compositions primarily reflect growth water in the model archaeon Sulfolobus acidocaldarius". (In press at Applied and Environmental Microbiology, special issue on Planetary Microbiology. Pre print availabe here: <https://www.biorxiv.org/content/10.1101/2024.10.24.620110v1.full>.)
+This repository holds data and supplementary source code for the manuscript, Harris et al. "Lipid hydrogen isotope compositions primarily reflect growth water in the model archaeon Sulfolobus acidocaldarius". (In press at Applied and Environmental Microbiology, special issue on Planetary Microbiology. Pre print availabe here: <https://www.biorxiv.org/content/10.1101/2024.10.24.620110v1.full>.) Repository is preserved on Zenodo here: [doi: 10.5281/zenodo.14743997](https://doi.org/10.5281/zenodo.14743997).
 
 In brief, this paper examines how growth rates, lipid profiles, and lipid/water H-isotope fractionation in a model hyperthermophilic archaeon vary in response to experimentally-manipulated growth conditions -- temperature, pH, aeration rate, electron acceptor flux, and electron donor flux. Growth rates were determined using opitcal density observations over time. Lipids were extracted from cell pellets using standard Bligh-Dyer extraction techniques. Tetraether lipids (GDGTs) were further derivitized to component biphytane chains via chemical ether cleavage. Biphytane profiles (identity and quantity) were analyzed via GC-MS and GC-FID. The H-isotope composition of individual biphytanes was analyzed via GC-Py-IRMS. 
 
 The raw data is presented in the folder "00Data_Inputs". The R scripts will generate the tables and figures included in the manuscript and the supplemental information.
-The primary dataset for this paper is also hosted on zenodo at: DOI 10.5281/zenodo.14743883. 
 
 Please contact Carolynn Harris at carolynn.m.harris.gr@dartmouth.edu with any questions. 
 

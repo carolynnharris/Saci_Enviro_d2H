@@ -1,8 +1,10 @@
 # Saci_Enviro_d2H
-Supplementary Materials for Harris et al. "Lipid hydrogen isotope compositions primarily reflect growth water in the model archaeon Sulfolobus acidocaldarius". bioRxiv (in review) <https://www.biorxiv.org/content/10.1101/2024.10.24.620110v1.full>. This repository holds data and supplementary source code for the manuscript. 
+This repository holds data and supplementary source code for the manuscript, Harris et al. "Lipid hydrogen isotope compositions primarily reflect growth water in the model archaeon Sulfolobus acidocaldarius". (In press at Applied and Environmental Microbiology, special issue on Planetary Microbiology. Pre print availabe here: <https://www.biorxiv.org/content/10.1101/2024.10.24.620110v1.full>.)
 
-The raw data is presented in the folder "00Data_Inputs". The R scripts will generate the tables and figures included in the manuscript and the supplement.
-The main dataset for this paper is also hosted on zenodo at: DOI 10.5281/zenodo.14743883.
+In brief, this paper examines how growth rates, lipid profiles, and lipid/water H-isotope fractionation in a model hyperthermophilic archaeon vary in response to experimentally-manipulated growth conditions -- temperature, pH, aeration rate, electron acceptor flux, and electron donor flux. Growth rates were determined using opitcal density observations over time. Lipids were extracted from cell pellets using standard Bligh-Dyer extraction techniques. Tetraether lipids (GDGTs) were further derivitized to component biphytane chains via chemical ether cleavage. Biphytane profiles (identity and quantity) were analyzed via GC-MS and GC-FID. The H-isotope composition of individual biphytanes was analyzed via GC-Py-IRMS. 
+
+The raw data is presented in the folder "00Data_Inputs". The R scripts will generate the tables and figures included in the manuscript and the supplemental information.
+The primary dataset for this paper is also hosted on zenodo at: DOI 10.5281/zenodo.14743883. 
 
 Please contact Carolynn Harris at carolynn.m.harris.gr@dartmouth.edu with any questions. 
 
@@ -11,8 +13,8 @@ Please contact Carolynn Harris at carolynn.m.harris.gr@dartmouth.edu with any qu
 - Download and install RStudio for your operating system
 - Download a zip file of this repository and decompress it in a directory of your choosing on your computer
 - Navigate to the directory and open "Saci Enviro R Analysis.Rproj"  to start Rstudio and load this project's files
-- Open the script(s) you would like to run. The scripts are numbered in the order they should be executed (e.g, 01, 02, 03, etc). 
-- Ensure that you have all of the required libraries installed by inspecting the Setup chunks. 
+- Open the script(s) you would like to run. The scripts are numbered in the order they should be executed (e.g, 01, 02, 03, etc)
+- Ensure that you have all of the required libraries installed by inspecting the Setup chunks 
 
 ## Folders
 - 00_DataInputs: Contains all raw data needed to produce the tables and figures in this paper

@@ -19,10 +19,10 @@ Please contact Carolynn Harris at carolynn.m.harris.gr@dartmouth.edu with any qu
 - 00_DataInputs: Contains all raw datasets needed to produce the tables and figures in this paper. There are subfolders for each dataset type: 
   - 01_Growth_Curves - files are named after the researcher and year the experiment was conducted  
   - 02_BP_Iso_Data - file contains all lipid and isotope data compiled by the lead author. The metadata tab provides units and description for all data columns.  
-  - **03_GCFID_Chromatogram - a representative chromatogram from S. acidocaldarius containing all BP moieties**  
-  - **04_Ring_Difference - summary of published ring difference data**  
-  - **05_Rhim et al., 2024 - summary of published fractionation values compiled by Rhim et al., 2024**  
-  - **06_Dirghangi and Pagani 2013 - Fractionation and growth data from a study on H. marismortui**  
+  - 03_GCFID_Chromatogram - a representative chromatogram from S. acidocaldarius containing all BP moieties  
+  - 04_Ring_Difference - summary of published ring difference data 
+  - 05_Rhim et al., 2024 - summary of published fractionation values compiled by Rhim et al., 2024 
+  - 06_Dirghangi and Pagani 2013 - Fractionation and growth data from a study on H. marismortui 
 - 00_Experiment Dataframes: Populated with .RDS and .csv summary files for each experiment, produced by "00 Data Calcs & Experiment Subsets.R" script
 - 01_SummaryTables: Populated with summary tables CSV files after running "01 Sumary Tables.R" script
 - 02_SummaryFigs: Populated with figures (PNG files) after running the other scripts (see below for details)

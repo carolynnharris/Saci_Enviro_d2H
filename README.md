@@ -16,7 +16,13 @@ Please contact Carolynn Harris at carolynn.m.harris.gr@dartmouth.edu with any qu
 - Ensure that you have all of the required libraries installed by inspecting the Setup chunks 
 
 ## Folders
-- 00_DataInputs: Contains all raw datasets needed to produce the tables and figures in this paper. There are subfolders for each dataset type: 01: Growth Curves, 02: Lipid & Isotope Data, 03: GC-FID chromatogram, 04: Ring Difference data from the literature, 05: Summary of published fractionation values compiled by Rhim et al., 2024, 06: Fractionation and growth data from Dirghangi and Pagani 2013
+- 00_DataInputs: Contains all raw datasets needed to produce the tables and figures in this paper. There are subfolders for each dataset type: 
+  - **01: Growth Curves - files are named after the researcher and year the experiment was conducted **  
+  - **02: Lipid & Isotope Data - file contains all lipid and isotope data compiled by the lead author **  
+  - **03: GC-FID chromatogram - a representative chromatogram from S. acidocaldarius containing all BP moieties**  
+  - **04: Ring Difference data from the literature - summary of published ring difference data**  
+  - **05: Rhim et al., 2024 - summary of published fractionation values compiled by Rhim et al., 2024**  
+  - **06: Dirghangi and Pagani 2013 - Fractionation and growth data from a study on H. marismortui**  
 - 00_Experiment Dataframes: Populated with .RDS and .csv summary files for each experiment, produced by "00 Data Calcs & Experiment Subsets.R" script
 - 01_SummaryTables: Populated with summary tables CSV files after running "01 Sumary Tables.R" script
 - 02_SummaryFigs: Populated with figures (PNG files) after running the other scripts (see below for details)

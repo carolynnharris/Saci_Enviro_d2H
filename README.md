@@ -16,22 +16,22 @@ Please contact Carolynn Harris at carolynn.m.harris.gr@dartmouth.edu with any qu
 - Ensure that you have all of the required libraries installed by inspecting the Setup chunks 
 
 ## Folders
-- 00_DataInputs: Contains all raw data needed to produce the tables and figures in this paper
-- 00_Experiment Dataframes: Populated with .RDS and .csv summary files for each experiment after running "00 Data Calcs & Experiment Subsets.R" script
-- 01_SummaryTables: Populated with summary tables (.csv) files after running "01 Sumary Tables.R" script
-- 02_SummaryFigs: Populated with figures (.png) after running the other scripts (see below for details)
+- 00_DataInputs: Contains all raw datasets needed to produce the tables and figures in this paper. There are subfolders for each dataset type: 01: Growth Curves, 02: Lipid & Isotope Data, 03: GC-FID chromatogram, 04: Ring Difference data from the literature, 05: Summary of published fractionation values compiled by Rhim et al., 2024, 06: Fractionation and growth data from Dirghangi and Pagani 2013
+- 00_Experiment Dataframes: Populated with .RDS and .csv summary files for each experiment, produced by "00 Data Calcs & Experiment Subsets.R" script
+- 01_SummaryTables: Populated with summary tables CSV files after running "01 Sumary Tables.R" script
+- 02_SummaryFigs: Populated with figures (PNG files) after running the other scripts (see below for details)
 
 ## Scripts
 - 00 Data Calcs & Experiment Subsets.R: Performs initial data cleaning, all calculations (e.g. Ring Indices, lipid/water fractionation calculations, weighted mean calculations, etc.), and subsets the data into environmental experiments (presented in the main text) and the 2H-labeled water experiments (presented in the Supplementary Materials).
-- 01 Sumary Tables.R: Generates Tables 1, 2, S1, S2
+- 01 Sumary Tables.R: Generates Tables 1, 2, S1, S2 which summaryize growth metrics, lipid distributions, isotope values, and fractionation values for each level of each experimental treatment
 - 02 Growth Curves Figs.R: Generates the growth curves in Fig. S1
-- 03 Enviro exp master plot.R: Generates the summary overview figure, Fig. 2
-- 04 Wt eps vs T_D.R: Generates the plot of doubling time vs. weighted mean lipid/water fractionation, Fig. 5
-- 05 Ring Difference.R: Generates the plot of environmental condition vs. mean ring difference, Fig. S4
-- 06 Ring diff vs BP.R: Generates the plot of BP ring number vs. mean ring difference, Fig. 3
-- 07 Correlograms.R: Generates the summary correlation matrices, Fig. 4
-- 08: PDFs of EpsLW by Domain_Rhim et al.R: Generates the plot of density functions for lipid/water fractionation values for each Domain, Fig. 6
+- 03 Experiment Summary Plot.R: Generates the summary overview figure, Fig. 2
+- 04 Fractionation vs Doubling Time.R: Generates the plot of doubling time vs. weighted mean lipid/water fractionation, Fig. 5
+- 05 Ring Difference vs Environmental Condition.R: Generates the plot of environmental condition vs. mean ring difference, Fig. S4
+- 06 Ring Difference vs Ring Number.R: Generates the plot of BP ring number vs. mean ring difference, Fig. 3
+- 07 Correlation Matrices.R: Generates the summary correlation matrices, Fig. 4
+- 08: 08 EpsLW Density Curves by Domain.R: Generates the plot of probability density functions for lipid/water fractionation values for each Domain, Fig. 6
 - 09 RI_BP vs RI_GDGT.R: Generates the plot of GDGT Ring Index vs. BP Ring Index, Fig. S2 
-- 10 Eps_vs_enviro_indivBPs.R: Generates the plot of environmental condition vs. lipid/water fractionation for each individual BP, Fig. S3
+- 10 Fractionation vs Environmental Condition_allBPs.R: Generates the plot of environmental condition vs. lipid/water fractionation for each individual BP, Fig. S3
 - 11 Dirghangi and Pagani 2013.R: Generates the plot of doubling time vs. fractionation for H. mari (data from Dirghangi and Pagani 2013), Fig S5
-- 12 Saci Chromatogram.R: Generates the plot of a representative chromatogram for S. aci, Fig. 1
+- 12 Saci GC-FID Chromatogram.R: Generates the plot of a representative chromatogram for S. aci, Fig. 1
